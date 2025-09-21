@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: user
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms_user_ms
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    addresses: amqps://leopard.lmq.cloudamqp.com:5671
+    username: njnckvrj
+    password: uWK86mVtyiXuxrrpxU2ptawgd1hUAYlS
+    virtual-host: njnckvrj
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: 8081

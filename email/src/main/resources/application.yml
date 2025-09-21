@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ms_email_ms
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  rabbitmq:
+    addresses: amqps://leopard.lmq.cloudamqp.com:5671
+    username: njnckvrj
+    password: uWK86mVtyiXuxrrpxU2ptawgd1hUAYlS
+    virtual-host: njnckvrj
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_APP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        transport:
+          protocol: smtp
+
+server:
+  port: 8080
